@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Change password</title>
+<link rel='stylesheet' type='text/css' href='styles.css'>
+
+<?php
+            //get current year
+            $currentDate = getdate();
+            //fetches year from currentDate and stores in $currentYear
+            $currentYear=$currentDate["year"]; 
+            //fetches year from currentDate and stores in $currentMonth
+            $currentMonth=$currentDate["mon"]; // 1 to 12
+            
+            if ($currentMonth<=6){
+                echo "<link rel='stylesheet' type='text/css' href='spring.css'>";
+            }
+            else {
+                echo "<link rel='stylesheet' type='text/css' href='winter.css'>";
+            }
+        ?>
+
+</head>
+
+<body>
+<div class="cuntainer">
+<div class="wrapper">    
+<h1>Update a password</h1>
+<form method="post" action="updatepass.php">
+Username: <br />
+<input name="username" type="text"/><br/>	
+New password: 
+<br />
+<input name="newpassword" type="password" /><br />
+<input type="submit" value="submit"/>
+</form>
+</div>
+</div>
+</body>
+</html>

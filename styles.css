@@ -1,0 +1,67 @@
+.wrapper {
+    width:100%;
+    line-height:1.6;
+    padding:1em;
+    font-family: "helvetica";
+}
+      
+ul li {
+    list-style:none;
+    text-decoration:none;
+    font-weight:bold;
+    padding:3px;
+}
+
+img {
+    border: solid 4px white;
+    margin:0 auto; 
+    display:block;
+}
+
+.cuntainer {
+    margin:0 auto;
+    max-width:400px;
+    box-shadow:0 0 20px 0 rgba(72,94,116,0.7);
+}
+
+.company-info {
+    background:#c9e6ff;
+    margin:0;
+    text-align:center;
+}
+
+
+.form-container {
+    background:#f9feff;
+    height:100%;
+}
+
+form input {
+    margin-bottom:15px;
+}
+form{
+    margin-left:30px;
+}
+
+h2,ul {
+    margin:0;
+    padding:0;
+}
+
+h2{
+    padding-left:25px;
+}
+
+.banner {
+    width:100%;
+}
+
+.center{
+    display:block;
+    margin:0 auto;
+    text-align:center;
+}
+
+p {
+    margin-left:20px;
+}

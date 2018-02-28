@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <?php
+            //get current year
+            $currentDate = getdate();
+            //fetches year from currentDate and stores in $currentYear
+            $currentYear=$currentDate["year"]; 
+            //fetches year from currentDate and stores in $currentMonth
+            $currentMonth=$currentDate["mon"]; // 1 to 12
+            
+            if ($currentMonth<=6){
+                echo "<link rel='stylesheet' type='text/css' href='spring.css'>";
+            }
+            else {
+                echo "<link rel='stylesheet' type='text/css' href='winter.css'>";
+            }
+        ?>
+        
+        <link rel='stylesheet' type='text/css' href='styles.css'>
+    </head>
+  <body>
+    <div class="wrapper">
+        <img src="http://ephp.solent.ac.uk/~ephp046/hittastic.png" alt="Should-be-an-image">
+        
+        <h1 class="center">Welcome to HitTastic</h1>
+        
+        <p class="center">
+          Search and shop for your favourite top 40 hits on HitTastic! Lorem ipsum dolor sit amet consectetur               
+          quod, fugit, corrupti temporibus dolor labore quae sapiente dignissimos. Aspernatur, 
+          cupiditate assumenda!
+        </p>
+        
+        <form method="get" action="advsearchresults.php" class="center">
+          <input type="text" id="artist" name="search"> <br/>
+          <br/>
+          <label>Search By</label>
+          <select name="select">
+            <option value="title">title</option>
+            <option value="artist">artist</option>
+            <option value="year">year</option>
+          </select>
+          <input type="submit" value="Search">
+        </form>
+        
+        <a href="http://ephp.solent.ac.uk/~ephp046/signup.html" class="center">Sign up form</a>
+        <a href="http://ephp.solent.ac.uk/~ephp046/updatepass.html" class="center">Change password</a>
+    </div> <!--wrapper end-->
+  </body>
+</html>
