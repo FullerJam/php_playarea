@@ -1,0 +1,75 @@
+<html>
+    <head>
+    <title>Solent Airways! - AJAX Demo</title>
+    
+    <style type='text/css'>
+
+        body { 
+            font-family: Calibri, DejaVu Sans, sans-serif; 
+            }
+
+        #response { 
+            background-color: #b2ffaf; 
+            width:400px; 
+            height:500px; 
+            }
+    </style>
+    
+    <script type='text/javascript'>
+    
+    
+    function ajaxrequest()
+    {
+        // Create the XMLHttpRequest variable.
+        // This variable represents the AJAX communication between client and
+        // server.
+        var xhr2 = new XMLHttpRequest();
+    
+        // Read the data from the form fields.
+        var a = document.getElementById("artist").value;
+    
+        // Specify the CALLBACK function. 
+        // When we get a response from the server, the callback function will run
+        xhr2.addEventListener ("load", responseReceived);
+    
+        // Open the connection to the server
+        // We are sending a request to "flights.php" and passing in the 
+        // destination and date as a query string. 
+        xhr2.open('GET',
+            'http://www.free-map.org.uk/flights.php?destination=' + a + '&date=' + b);
+    
+        // Send the request.
+        xhr2.send();
+    }
+    
+    // The callback function
+    // It simply places the response from the server in the div with the ID
+    // of 'response'.
+    
+    // The parameter "e" contains the original XMLHttpRequest variable as
+    // "e.target".
+    // We get the actual response from the server as "e.target.responseText"
+    function responseReceived(e)
+    {
+        document.getElementById('response').innerHTML = e.target.responseText;
+    }
+    
+    </script>
+    
+    </head>
+    
+    
+    <body>
+    
+    <h1>Welcome to Hittastic!</h1>
+    
+    <p>
+    Artist:<br/>
+    <input id="artist" /> <br/>
+    
+    <input type="button" value="Go!" onclick="ajaxrequest()" />
+    </p>
+    
+    <div id="response"></div>
+    
+    </body></html>
