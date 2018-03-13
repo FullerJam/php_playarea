@@ -3,39 +3,45 @@
     <title>Hitastic! - AJAX Demo</title>
     
     <style type='text/css'>
-
         body { 
             font-family: Calibri, DejaVu Sans, sans-serif; 
             }
 
         #response { 
-            background-color: #b2ffaf; 
-            width:400px; 
-            height:500px; 
+            background-color: #b2ffaf;
+            width:500px;
             }
-    </style><!-- flex commands new additions to see if div stretches to fit content -->
+    </style>
     
     <script type='text/javascript'>
+    //Global variable
+    var xhr2 = new XMLHttpRequest(); //declared globally
+
+
+
+    function like(id)//argument id added used (links to value added to link in ajax search results) -- https://www.w3schools.com/js/tryit.asp?filename=tryjs_function2 -- to understand
+    {
+        xhr2.addEventListener ("load", responseReceived);
+        xhr2.open('GET', 'https://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/ajaxlike.php?songID=' + id);
+        xhr2.send();
+    }
     
     
     function ajaxrequest(){
         // Create the XMLHttpRequest variable.
         // This variable represents the AJAX communication between client and
         // server.
-        var xhr2 = new XMLHttpRequest();
-    
+            //var xhr2 = new XMLHttpRequest(); //now declared globally
         // Read the data from the form fields.
         var artist = document.getElementById("artist").value;
-    
+        
         // Specify the CALLBACK function. 
         // When we get a response from the server, the callback function will run
         xhr2.addEventListener ("load", responseReceived);
-    
         // Open the connection to the server
         // We are sending a request to "flights.php" and passing in the 
         // destination and date as a query string. 
-        xhr2.open('GET',
-            'https://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/ajaxsearchresults.php?artist=' + artist);
+        xhr2.open('GET', 'https://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/ajaxsearchresults.php?artist=' + artist);
     
         // Send the request.
         xhr2.send();

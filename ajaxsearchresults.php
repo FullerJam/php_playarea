@@ -23,10 +23,10 @@ while($row != false)
     echo "<p>";
     echo " ID ".$row["ID"]."<br/>";
     echo " Artist ".$row["artist"] ."<br/> ";
-    echo " Song Title " .$row["title"] . "<br/> " ; 
-    echo " Day " .$row["day"]. "<br/>" ; 
-    echo " Month " .$row["month"]. "<br/>" ; 
-    echo " Year " .$row["year"]. "<br/>" ;
+    echo " Song Title " .$row["title"] . "<br/> ";
+    echo " Day " .$row["day"]. "<br/>"; 
+    echo " Month " .$row["month"]. "<br/>";
+    echo " Year " .$row["year"]. "<br/>";
     echo " Downloads " .$row["downloads"]. "<br/>";
     echo " Quantity " .$row["quantity"]. "<br/>";
     echo " Likes " .$row["likes"]. "<br/>";
@@ -34,8 +34,8 @@ while($row != false)
     echo "<a href='download.php?songID=".$row["ID"]."'>Download</a><br/>";
     echo "<a href='https://www.youtube.com/results?search_query=".$row["artist"]." ".$row["title"]."'>Listen to the song on Youtube!</a> <br/>";
     echo "<a href='order1.php?songID=".$row["ID"]."'>Order a copy</a><br/>";
-    echo "<a href='#' onclick='like(the song ID)'>Like</a>";
-    $row = $results->fetch();    
+    echo "<a href='#' onclick='like(".$row["ID"].")'>Like</a>";
+    $row = $results->fetch();
 }
 }
 //print_r($conn->errorInfo()); //errorInfo() returns an array with three members
