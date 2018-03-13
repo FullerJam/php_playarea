@@ -13,7 +13,7 @@ else
  {
     echo "<head><link rel='stylesheet' type='text/css' href='styles.css'></head>";
     echo "<div class='wrapper'>";
-    echo "<div class='banner'><img src='http://edward2.solent.ac.uk/~ephp046/hittastic.png' alt='This should be an image'></div>";
+    echo "<div class='banner'><img src='http://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/hittastic.png' alt='This should be an image'></div>";
     echo "<div class='cuntainer'>";
     echo "<h1>Song Details</h1>";
     echo "<form method='post' action='changedetails2.php'>";
