@@ -12,9 +12,6 @@
             background-color: #b2ffaf; 
             width:400px; 
             height:500px; 
-            
-            display:flex;
-            flex-direction:column;
             }
     </style><!-- flex commands new additions to see if div stretches to fit content -->
     
@@ -38,7 +35,7 @@
         // We are sending a request to "flights.php" and passing in the 
         // destination and date as a query string. 
         xhr2.open('GET',
-            'https://edward2.solent.ac.uk/dfti/hits.php?artist=' + artist);
+            'https://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/ajaxsearchresults.php?artist=' + artist);
     
         // Send the request.
         xhr2.send();

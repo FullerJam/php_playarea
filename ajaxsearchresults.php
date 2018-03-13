@@ -1,7 +1,7 @@
 <?php
 include('functions.php');//include all code from selected file
 $artist = $_GET["artist"];
-connect(); // function wrtten in functions.php
+connect(); // functions wrtten in functions.php
 $results = connect()->query("select * from wadsongs where artist='$artist'");
 $row = $results->fetch();
 
@@ -29,10 +29,12 @@ while($row != false)
     echo " Year " .$row["year"]. "<br/>" ;
     echo " Downloads " .$row["downloads"]. "<br/>";
     echo " Quantity " .$row["quantity"]. "<br/>";
+    echo " Likes " .$row["likes"]. "<br/>";
     echo "</p>";
     echo "<a href='download.php?songID=".$row["ID"]."'>Download</a><br/>";
     echo "<a href='https://www.youtube.com/results?search_query=".$row["artist"]." ".$row["title"]."'>Listen to the song on Youtube!</a> <br/>";
-    echo "<a href='order1.php?songID=".$row["ID"]."'>Order a copy</a>";
+    echo "<a href='order1.php?songID=".$row["ID"]."'>Order a copy</a><br/>";
+    echo "<a href='#' onclick='like(the song ID)'>Like</a>";
     $row = $results->fetch();    
 }
 }

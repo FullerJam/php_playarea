@@ -37,6 +37,7 @@
         <a href='http://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/advancedsearch.html' class='center'>Advanced search</a>
         <a href='http://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/admindbupdate.php' class='center'>Admin DB Update</a>
         <a href='http://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/logout.php' class='center'>Log out</a>
+        <a href='http://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/ajax_index.html' class='center'>AJAX SEARCH</a>
     </div> <!--wrapper end-->
   </body>
 </html>
