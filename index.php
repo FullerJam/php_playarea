@@ -17,7 +17,7 @@
     </head>
     <body>
     <div class='wrapper'>
-        <img src='http://ephp.solent.ac.uk/~ephp046/hittastic.png' alt='Should-be-an-image'>
+        <img src='http://edward2.solent.ac.uk/~ephp046/hittastic.png' alt='Should-be-an-image'>
         
         <h1 class='center'>Welcome to HitTastic</h1>
         
@@ -32,11 +32,11 @@
           <input type='submit' value='Search'>
         </form>
         
-        <a href='http://ephp.solent.ac.uk/~ephp046/signup.html' class='center'>Sign up form</a>
-        <a href='http://ephp.solent.ac.uk/~ephp046/updatepass.html' class='center'>Change password</a>
-        <a href='http://ephp.solent.ac.uk/~ephp046/advancedsearch.html' class='center'>Advanced search</a>
-        <a href='http://ephp.solent.ac.uk/~ephp046/admindbupdate.php' class='center'>Admin DB Update</a>
-        <a href='http://ephp.solent.ac.uk/~ephp046/logout.php' class='center'>Log out</a>
+        <a href='http://edward2.solent.ac.uk/~ephp046/signup.html' class='center'>Sign up form</a>
+        <a href='http://edward2.solent.ac.uk/~ephp046/updatepass.html' class='center'>Change password</a>
+        <a href='http://edward2.solent.ac.uk/~ephp046/advancedsearch.html' class='center'>Advanced search</a>
+        <a href='http://edward2.solent.ac.uk/~ephp046/admindbupdate.php' class='center'>Admin DB Update</a>
+        <a href='http://edward2.solent.ac.uk/~ephp046/logout.php' class='center'>Log out</a>
     </div> <!--wrapper end-->
   </body>
 </html>

@@ -1,6 +1,6 @@
 <html>
     <head>
-    <title>Solent Airways! - AJAX Demo</title>
+    <title>Hitastic! - AJAX Demo</title>
     
     <style type='text/css'>
 
@@ -18,15 +18,14 @@
     <script type='text/javascript'>
     
     
-    function ajaxrequest()
-    {
+    function ajaxrequest(){
         // Create the XMLHttpRequest variable.
         // This variable represents the AJAX communication between client and
         // server.
         var xhr2 = new XMLHttpRequest();
     
         // Read the data from the form fields.
-        var a = document.getElementById("artist").value;
+        var artist = document.getElementById("artist").value;
     
         // Specify the CALLBACK function. 
         // When we get a response from the server, the callback function will run
@@ -36,7 +35,7 @@
         // We are sending a request to "flights.php" and passing in the 
         // destination and date as a query string. 
         xhr2.open('GET',
-            'http://www.free-map.org.uk/flights.php?destination=' + a + '&date=' + b);
+            'https://edward2.solent.ac.uk/dfti/hits.php?artist=' + artist);
     
         // Send the request.
         xhr2.send();
@@ -65,9 +64,8 @@
     
     <p>
     Artist:<br/>
-    <input id="artist" /> <br/>
+    <input id="artist" onkeyup="ajaxrequest()"/> <br/>
     
-    <input type="button" value="Go!" onclick="ajaxrequest()" />
     </p>
     
     <div id="response"></div>

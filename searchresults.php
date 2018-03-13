@@ -31,7 +31,7 @@ while($row != false)
     echo " Quantity " .$row["quantity"]. "<br/>";
     echo "</p>";
     echo "<a href='download.php?songID=".$row["ID"]."'>Download</a><br/>";
-    echo "<a href='https://www.youtube.com/results?search_query=".$row["artist"]." ".$row["title"]."'>Youtube search</a> <br/>";
+    echo "<a href='https://www.youtube.com/results?search_query=".$row["artist"]." ".$row["title"]."'>Listen to the song on Youtube!</a> <br/>";
     echo "<a href='order1.php?songID=".$row["ID"]."'>Order a copy</a>";
     $row = $results->fetch();    
 }
