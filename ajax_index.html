@@ -15,13 +15,13 @@
     
     <script type='text/javascript'>
     //Global variable
-    var xhr2 = new XMLHttpRequest(); //declared globally
-
+     //declared globally
 
 
     function like(id)//argument id added used (links to value added to link in ajax search results) -- https://www.w3schools.com/js/tryit.asp?filename=tryjs_function2 -- to understand
     {
-        xhr2.addEventListener ("load", responseReceived);
+        var xhr2 = new XMLHttpRequest();
+        xhr2.addEventListener ("load", responseAlert);
         xhr2.open('GET', 'https://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/ajaxlike.php?songID=' + id);
         xhr2.send();
     }
@@ -29,9 +29,11 @@
     
     function ajaxrequest(){
         // Create the XMLHttpRequest variable.
+        var xhr2 = new XMLHttpRequest();
         // This variable represents the AJAX communication between client and
         // server.
-            //var xhr2 = new XMLHttpRequest(); //now declared globally
+            //var xhr2 = new XMLHttpRequest(); -- now declared globally, BIG MISTAKE, MULTIPLIED EVENTLISTENERS.. EVENT LISTERNS
+            // SHOULD BE DECLARED LOCALLY 
         // Read the data from the form fields.
         var artist = document.getElementById("artist").value;
         
@@ -57,6 +59,10 @@
     function responseReceived(e)
     {
         document.getElementById('response').innerHTML = e.target.responseText;
+    }
+
+    function responseAlert(e){
+        alert(e.target.responseText);
     }
     
     </script>

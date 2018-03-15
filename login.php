@@ -5,7 +5,6 @@
     
     $un = $_POST["username"];
     $pw = $_POST["password"];
-    $admin = $_POST ["isadmin"];
     
     $results = connect()->query("SELECT * from ht_users WHERE username='$un'");
     $row = $results->fetch();

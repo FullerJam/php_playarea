@@ -17,7 +17,7 @@
     </head>
     <body>
     <div class='wrapper'>
-        <img src='http://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/hittastic.png' alt='Should-be-an-image'>
+        <img src='http://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/hittastic.png' alt='Image?'>
         
         <h1 class='center'>Welcome to HitTastic</h1>
         
