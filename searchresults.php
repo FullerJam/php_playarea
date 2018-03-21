@@ -1,8 +1,8 @@
 <?php
 include('functions.php');//include all code from selected file
 $artist = $_GET["artist"];
-connect(); // function wrtten in functions.php
-$results = connect()->query("select * from wadsongs where artist='$artist'");
+$con = connect(); // function wrtten in functions.php, log as a variable or you access the database an infinite number of times
+$results = $con->query("select * from wadsongs where artist='$artist'");
 $row = $results->fetch();
 
 // If $row is equal to the value "false", display an error
@@ -40,5 +40,3 @@ while($row != false)
                             //print_r() prints the entire contents of an array
 
 ?>
-</body>
-</html>

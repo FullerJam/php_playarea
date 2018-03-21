@@ -4,17 +4,18 @@
 <title>Change password</title>
 </head>searchresults.php
 <?php
-
+include("functions.php");
+$con = connect();
 $username = $_POST["username"]; 
 $password = $_POST ["newpassword"];
-index.php
 
-$conn = new PDO ("mysql:host=localhost;dbname=ephp046;", "ephp046", "thigheep");
 
-$queryName = $conn->query("SELECT name FROM ht_users WHERE name = '$username';");
-$errors = $queryName->fetch();
+$con = connect();
 
-$results = $conn->query("UPDATE ht_users SET password = '$password'; WHERE username ='$username';");
+$queryName=$con->query("SELECT name FROM ht_users WHERE name = '$username';");
+$errors=$queryName->fetch();
+
+$results=$con->query("UPDATE ht_users SET password = '$password'; WHERE username ='$username';");
 //had to include ';' after each condition for update to work
 
 

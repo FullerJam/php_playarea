@@ -1,14 +1,14 @@
 <?php
 include('functions.php');//include all code from selected file
 $artist = $_GET["artist"];
-connect(); // functions wrtten in functions.php
+$con = connect(); // functions wrtten in functions.php
 
 if (strlen($artist)<=1){
     echo "please enter more than one character";
 }
 else {
 
-$results = connect()->query("select * from wadsongs where artist LIKE'$artist%'");
+$results = $con->query("select * from wadsongs where artist LIKE'$artist%'");
 $row = $results->fetch();
 
 /*The SQL LIKE Operator
@@ -44,7 +44,8 @@ while($row != false)
     echo " Year " .$row["year"]. "<br/>";
     echo " Downloads " .$row["downloads"]. "<br/>";
     echo " Quantity " .$row["quantity"]. "<br/>";
-    echo " Likes " .$row["likes"]. "<br/>";
+    echo " Likes <span id='like".$row["ID"]."'>".$row["likes"]."</span><br/>"; 
+    /*target likes with a span & id so that it can be targeted individually making xml query more efficient*/
     echo "</p>";
     echo "<a href='download.php?songID=".$row["ID"]."'>Download</a><br/>";
     echo "<a href='https://www.youtube.com/results?search_query=".$row["artist"]." ".$row["title"]."'>Listen to the song on Youtube!</a> <br/>";

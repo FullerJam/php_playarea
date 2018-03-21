@@ -1,8 +1,8 @@
 <?php
 include ('functions.php');
+$con = connect();
 $id = $_GET["song-id"];
-$conn = new PDO ("mysql:host=localhost;dbname=ephp046;", "ephp046", "thigheep");
-$results = $conn->query("select * from wadsongs where ID='$id'");
+$results = $con->query("select * from wadsongs where ID='$id'");
 $row = $results->fetch();
 
 

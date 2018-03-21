@@ -1,18 +1,17 @@
 <?php
     include ('functions.php');
-    connect();
+    $con = connect();
     session_start();
     
     $un = $_POST["username"];
     $pw = $_POST["password"];
     
-    $results = connect()->query("SELECT * from ht_users WHERE username='$un'");
+    $results = $con->query("SELECT * from ht_users WHERE username='$un'");
     $row = $results->fetch();
     
     if ($row!=false) {
         if($pw == $row["password"]){
-        
-        $_SESSION["gatekeeper"] = $un; 
+        $_SESSION["gatekeeper"] = $un;
         $_SESSION["user_role"]  = $admin;
         header ("Location: index.php");
         } else {

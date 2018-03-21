@@ -2,8 +2,8 @@
 include('functions.php');
 $select = $_GET["select"];
 $search = $_GET["search"];
-connect();
-$results = connect()->query("select * from wadsongs where $select = '$search'"); //wrap $search in single quotes or you get SQL syntax error 
+$con = connect();
+$results = $con->query("select * from wadsongs where $select = '$search'"); //wrap $search in single quotes or you get SQL syntax error 
 $row = $results->fetch();
 
 echo "<head>";
@@ -34,7 +34,7 @@ while($row!=false)
     $row = $results->fetch();
 }
 }
-print_r(connect()->errorInfo()); //errorInfo() returns an array with three members
+print_r($con->errorInfo()); //errorInfo() returns an array with three members
                             //print_r() prints the entire contents of an array
 
 ?>

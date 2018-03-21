@@ -18,12 +18,16 @@
      //declared globally
 
 
+    var curLike;
+
     function like(id)//argument id added used (links to value added to link in ajax search results) -- https://www.w3schools.com/js/tryit.asp?filename=tryjs_function2 -- to understand
     {
         var xhr2 = new XMLHttpRequest();
+        xhr2.open('GET', 'ajaxlike.php?songID='+id);
+        curLike = id;
         xhr2.addEventListener ("load", responseAlert);
-        xhr2.open('GET', 'https://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/ajaxlike.php?songID=' + id);
-        xhr2.send();
+        //xhr2.open('GET', 'ajaxlike.php?songID='+id); //original position
+        xhr2.send();   
     }
     
     
@@ -43,7 +47,7 @@
         // Open the connection to the server
         // We are sending a request to "flights.php" and passing in the 
         // destination and date as a query string. 
-        xhr2.open('GET', 'https://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/ajaxsearchresults.php?artist=' + artist);
+        xhr2.open('GET', 'ajaxsearchresults.php?artist='+artist);
     
         // Send the request.
         xhr2.send();
@@ -62,7 +66,9 @@
     }
 
     function responseAlert(e){
-        alert(e.target.responseText);
+        //alert(e.target.responseText);
+        document.getElementById('like' + curLike).innerHTML = e.target.responseText;
+    
     }
     
     </script>

@@ -10,8 +10,8 @@ $likes= $_POST["likes"];
 $downloads= $_POST["downloads"];
 $genre= $_POST["genre"];
 
-connect();
-$results = connect()->query("UPDATE wadsongs SET title='$title',artist='$artist',day='$day',month='$month',chart='$chart',likes='$likes',downloads='$downloads',genre='$genre' WHERE ID ='$ID';");
+$con = connect();
+$results = $con()->query("UPDATE wadsongs SET title='$title',artist='$artist',day='$day',month='$month',chart='$chart',likes='$likes',downloads='$downloads',genre='$genre' WHERE ID ='$ID';");
 
 if ($results){
     echo "Database entry was a success";

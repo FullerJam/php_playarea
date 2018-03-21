@@ -17,7 +17,7 @@
     </head>
     <body>
     <div class='wrapper'>
-        <img src='http://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/hittastic.png' alt='Image?'>
+        <img src='hittastic.png' alt='Image?'>
         
         <h1 class='center'>Welcome to HitTastic</h1>
         
@@ -29,15 +29,11 @@
         
         <form method='get' action='searchresults.php' class='center'>
           <input type='text' id='artist' name='artist'>
-          <input type='submit' value='Search'>
-        </form>
-        
-        <a href='http://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/signup.html' class='center'>Sign up form</a>
-        <a href='http://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/updatepass.html' class='center'>Change password</a>
-        <a href='http://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/advancedsearch.html' class='center'>Advanced search</a>
-        <a href='http://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/admindbupdate.php' class='center'>Admin DB Update</a>
-        <a href='http://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/logout.php' class='center'>Log out</a>
-        <a href='http://edward2.solent.ac.uk/~ephp046/PHP_PLAYAREA/ajax_index.html' class='center'>AJAX SEARCH</a>
+        <a href='updatepass.html' class='center'>Change password</a>
+        <a href='advancedsearch.html' class='center'>Advanced search</a>
+        <a href='admindbupdate.php' class='center'>Admin DB Update</a>
+        <a href='logout.php' class='center'>Log out</a>
+        <a href='ajax_index.html' class='center'>AJAX SEARCH</a>
     </div> <!--wrapper end-->
   </body>
 </html>

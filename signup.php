@@ -14,14 +14,14 @@ $day = $_POST["day"];
 $month = $_POST["month"];
 $year = $_POST["year"];
 
-connect();
-$results = connect()->query("INSERT INTO ht_users (name,username,password,yearofbirth,monthofbirth,dayofbirth) VALUE ('$name','$u','$p','$year','$month','$day')");
+$con = connect();
+$results = $con->query("INSERT INTO ht_users (name,username,password,yearofbirth,monthofbirth,dayofbirth) VALUE ('$name','$u','$p','$year','$month','$day')");
 
 if ($results){
     echo "Database entry was a success";
 }
 else{
-    echo connect()->errorInfo()[2]; //2	Driver-specific error message.
+    echo $con->errorInfo()[2]; //2	Driver-specific error message.
 }
 
 

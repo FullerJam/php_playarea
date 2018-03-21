@@ -1,16 +1,12 @@
 <?php
-include('functions.php');
 session_start();
 // Test that the authentication session variable exists
-connect();
-$results=connect()->query("SELECT isadmin from ht_users WHERE username='{$_SESSION['gatekeeper']}'");
-$row = $results->fetch();
 
 if (!isset ($_SESSION["gatekeeper"])){
     header("refresh:5 url=login.html");
     echo "You're not logged in. ";
 }
-else if ($row==0){
+else if (!isset ($_SESSION["isadmin"])){
     header("refresh:5 url=login.html");
     echo "Area restricted, admin access only.";
 }

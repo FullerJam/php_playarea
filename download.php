@@ -3,17 +3,17 @@ session_start();
 
 include('functions.php');
 $id= htmlentities($_GET["songID"]);
-connect();
+$con = connect();
 
-$update0 = connect()->query("SELECT * FROM ht_users WHERE username='{$_SESSION['gatekeeper']}'");
-$update1 = connect()->query("SELECT * FROM wadsongs WHERE ID ='$id'");
+$update0 = $con->query("SELECT * FROM ht_users WHERE username='{$_SESSION['gatekeeper']}'");
+$update1 = $con->query("SELECT * FROM wadsongs WHERE ID ='$id'");
 
 $wadsongRow = $update1->fetch();
 $htusersRow = $update0->fetch();
 
 if ($htusersRow["balance"] >= $wadsongRow["price"] ){
-    $update3 = connect()->query("UPDATE ht_users SET balance=balance-".$wadsongRow['price']." WHERE username='{$_SESSION['gatekeeper']}'");
-    $update2 = connect()->query("UPDATE wadsongs SET downloads=downloads+1 WHERE ID='$id'");
+    $update3 = $con->query("UPDATE ht_users SET balance=balance-".$wadsongRow['price']." WHERE username='{$_SESSION['gatekeeper']}'");
+    $update2 = $con->query("UPDATE wadsongs SET downloads=downloads+1 WHERE ID='$id'");
 }
 else {
     echo "You do not have enough money to purchase the selected track";
