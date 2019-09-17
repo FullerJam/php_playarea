@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
             session_start();
             // Test that the authentication session variable exists
             if ( !isset ($_SESSION["gatekeeper"]))
@@ -10,7 +10,7 @@
             {
                 echo "You are logged in as ".$_SESSION["gatekeeper"]; 
               ?>  
-        
+         -->
     <html lang='en'>
     <head>
     <link rel='stylesheet' type='text/css' href='styles.css'>
@@ -34,9 +34,10 @@
         <a href='admindbupdate.php' class='center'>Admin DB Update</a>
         <a href='logout.php' class='center'>Log out</a>
         <a href='ajax_index.html' class='center'>AJAX SEARCH</a>
+        <a href="#" class="center">CILLAS FAN PAGE</a>
     </div> <!--wrapper end-->
   </body>
 </html>
-<?php
+<!-- <?php
 }
-?>              
+?>               -->
