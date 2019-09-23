@@ -34,10 +34,10 @@
         <a href='admindbupdate.php' class='center'>Admin DB Update</a>
         <a href='logout.php' class='center'>Log out</a>
         <a href='ajax_index.html' class='center'>AJAX SEARCH</a>
-        <a href="#" class="center">CILLAS FAN PAGE</a>
+        <a href="htmlcilla.php" class="center">CILLAS FAN PAGE</a>
     </div> <!--wrapper end-->
   </body>
 </html>
 <!-- <?php
 }
-?>               -->
+?>-->

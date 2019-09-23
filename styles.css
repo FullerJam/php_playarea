@@ -1,8 +1,16 @@
+body {
+    font-family: 'Oswald' sans-serif;
+}
+
+h1,h2,h3,h4{
+    margin:0px;
+    padding:0px;
+}
+
 .wrapper {
     width:100%;
     line-height:1.6;
     padding:1em;
-    font-family: "helvetica";
 }
       
 ul li {
@@ -10,6 +18,10 @@ ul li {
     text-decoration:none;
     font-weight:bold;
     padding:3px;
+}
+
+.container{
+    max-width:1000px
 }
 
 img {
@@ -52,6 +64,10 @@ h2{
     padding-left:25px;
 }
 
+p {
+    margin-left:20px;
+}
+
 .banner {
     width:100%;
 }
@@ -62,10 +78,6 @@ h2{
     text-align:center;
 }
 
-p {
-    margin-left:20px;
-}
-
 
 .title{
     background-color:#f4f4f4;
@@ -74,5 +86,35 @@ p {
 }
 
 .wrapper{
-    background-color:#f4f4f4;
+    background-color:#dddddd;
 }
+
+.video-container {
+	position:relative;
+	padding-bottom:56.25%;
+	padding-top:30px;
+	height:0;
+    overflow:hidden;
+    max-width:640px;
+    width:80%;
+    margin: 0 auto;
+
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+    height:100%;
+}
+.ytp-cued-thumbnail-overlay-image{
+    -webkit-background-size: contain!important;
+}
+
+@media only screen and (max-width: 768px) {
+    h4{
+        font-size: 1rem;
+        font-weight: bold;
+    }
+  }
