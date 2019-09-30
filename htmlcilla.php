@@ -58,9 +58,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="hits col mt-4 px-0 px-sm-5">
+                <div class="col mt-4 px-0 px-sm-5">
                     <h4 style="margin:0 0 10px 18px">Hit Songs</h4>
-
+                    <p class="hits"></p>
                 </div>
             </div>
         </div>
@@ -70,7 +70,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('.hits').load('cilla.php');
+        $('.hits').load('htwebservice2.php');
     });
 </script>
 
