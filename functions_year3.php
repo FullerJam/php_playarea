@@ -2,7 +2,7 @@
 function connect()
 {
 
-    $conn = new PDO ("mysql:host=localhost;dbname=wad;","wad","wad");
+    $conn = new PDO ("mysql:host=localhost;dbname=dftitutorials;","dftitutorials","dftitutorials");
     
     return $conn;
 }
