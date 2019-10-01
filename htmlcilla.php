@@ -1,16 +1,4 @@
-<!-- <?php
-            session_start();
-            // Test that the authentication session variable exists
-            if ( !isset ($_SESSION["gatekeeper"]))
-            {
-                header( "refresh:5;url=login.html" );
-                echo "You're not logged in. Go away!";
-            }
-            else
-            {
-                echo "You are logged in as ".$_SESSION["gatekeeper"]; 
-              ?>  
-         -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,6 +63,3 @@
 </script>
 
 </html>
-<!--<?php
-}
-?>-->
