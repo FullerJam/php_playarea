@@ -66,6 +66,23 @@ $app->get('/song/{song}/artist/{artist}', function ($req, $res, array $args) {
     }
 });
 
+
+//post route
+$app->post('/review/{id}/create', function ($req, $res, array $args) {
+    $postData = $req->getParsedBody();
+    if(strlen($postData["review"]) < 5){
+        return $res
+            ->withStatus(400) //bad request status
+            ->withHeader('content-Type', 'text/html')
+            ->write('Page not found');
+    } else {
+        $stmt = $this->db->prepare("INSERT INTO reviews (review, songID) VALUES(?, ?)"); // postDATA from client review 
+        $stmt->bindParam (1, $postData["review"]);
+        $stmt->bindParam (2, $args["id"]);
+        $stmt->execute();
+    }
+});
+
 // Run the application
 $app->run();
 ?>
