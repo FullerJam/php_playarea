@@ -23,11 +23,11 @@ curl_close($connection);
 $phpArray = json_decode($response, true); // converts JSON data to array
 #print_r($phpArray); //dump all data of the array
 foreach($phpArray as $key => $value){
-    echo $value["title"]."&nbsp;&nbsp;Date:&nbsp".$value["day"]."&nbsp;".$value["month"]."&nbsp".$value["year"]."<br>"; // Access Array data
-    echo "<form method='POST' action='clientreview.php'>
-    Leave a review:<br>
-    <textarea name='review' rows='4'></textarea>
-    <input type='hidden' name='songID' value='$value[id]'><br>
+    echo "<strong>".$value["title"]."&nbsp;&nbsp;Date:&nbsp".$value["day"]."&nbsp;".$value["month"]."&nbsp".$value["year"]."</strong><br>"; // Access Array data
+    echo "<form method='post' action='clientreview.php' id='reviewform".$value["id"]."'>
+    <i class='fa fa-sticky-note fa-4' aria-hidden='true'></i> Review this song<br>
+    <textarea name='review' id='review' rows='3' form='reviewform".$value["id"]."'></textarea>
+    <input type='hidden' name='songID' id='songID' value='".$value["id"]."'><br>
     <input type='submit'/>
     </form>";
 }

@@ -76,14 +76,14 @@ $app->get('/song/{song}/artist/{artist}', function ($req, $res, array $args) {
 
 
 
-//post route
+//POST review route -- review must be longer than 5 characters
 $app->post('/review/{id}/create', function ($req, $res, array $args) {
     $postData = $req->getParsedBody();
-    if(strlen($postData["review"]) < 5){
+    if(strlen($postData["review"]) <= 5){
         return $res
             ->withStatus(400) //bad request status
             ->withHeader('content-Type', 'text/html')
-            ->write('Page not found');
+            ->write('bad request');
     } else {
         $stmt = $this->db->prepare("INSERT INTO reviews (review, songID) VALUES(?, ?)"); // postDATA from client review 
         $stmt->bindParam (1, $postData["review"]);

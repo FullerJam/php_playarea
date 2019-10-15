@@ -11,6 +11,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel='stylesheet' type='text/css' href='..\styles.css'>
     <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -47,8 +48,8 @@
             </div>
             <div class="row">
                 <div class="col mt-4 px-0 px-sm-5">
-                    <h4 style="margin:0 0 10px 18px">Hit Songs</h4>
-                    <p class="hits"></p>
+                    <h4 style="margin:0 0 10px 16px">Hit Songs</h4>
+                    <div class="ml-3 hits"></div>
                 </div>
             </div>
         </div>
