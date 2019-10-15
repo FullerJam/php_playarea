@@ -8,7 +8,7 @@ if (strlen($artist)<=1){
 }
 else {
 
-$results = $con->query("select * from wadsongs where artist LIKE'$artist%'");
+$results = $con->query("SELECT * from wadsongs where artist LIKE'$artist%'");
 $row = $results->fetch();
 
 /*The SQL LIKE Operator

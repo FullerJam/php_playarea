@@ -33,13 +33,8 @@ $app->get('/all_songs', function ($req, $res, array $args) {
 
 // Setup a route (see below) http request, response
 $app->get('/artist/{artist}', function ($req, $res, array $args) {
-    if(strlen($args < 1)){
-        return "Please enter more than one character :-)"; // tried to error check arguments. Didn't work..
-    } else {
-    $stmt = $this->db->prepare("SELECT * FROM wadsongs WHERE artist LIKE :aName");
-    $artist = $args["artist"];
-     // this is how to wildcard with bind params
-    $stmt->bindParam (':aName', '%'.$args["artist"].'%');
+    $stmt = $this->db->prepare("SELECT * FROM wadsongs WHERE artist=?");
+    $stmt->bindParam (1, $args["artist"]);
     $stmt->execute();
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     //$res->getBody()->write("".$rows.""); //html 
@@ -70,10 +65,6 @@ $app->get('/song/{song}/artist/{artist}', function ($req, $res, array $args) {
     return $res->withJson($rows);
     }
 });
-
-//song/{id}/order
-
-
 
 
 //post route
