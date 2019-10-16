@@ -9,7 +9,7 @@ curl_setopt($connection,CURLOPT_RETURNTRANSFER,1);
 curl_setopt($connection,CURLOPT_POSTFIELDS,$dataToPost);
 $response = curl_exec($connection);
 
-$httpCode = curl_getinfo($connection,CURLINFO_HTTP_CODE);
+$httpCode = curl_getinfo($connection,CURLINFO_HTTP_CODE); //retrieve httpCode response using curl
 curl_close($connection);
 
 $responseMessage = "";

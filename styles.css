@@ -63,6 +63,10 @@ form input {
     width: 100%;
 }
 
+input[type="submit"] {
+    width: 163px;
+  }
+
 h2,ul {
     margin:0;
     padding:0;

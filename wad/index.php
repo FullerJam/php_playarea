@@ -3,7 +3,6 @@
 // the 'vendor' directory which will, in turn, include all required dependencies.
 require '/var/www/html/share/vendor/autoload.php';
 
-
 // Create a new Slim App object. (v3 method)
 $app = new \Slim\App;
 
@@ -33,10 +32,12 @@ $app->get('/all_songs', function ($req, $res, array $args) {
 
 // Setup a route (see below) http request, response
 $app->get('/artist/{artist}', function ($req, $res, array $args) {
-    $stmt = $this->db->prepare("SELECT * FROM wadsongs WHERE artist=?");
-    $stmt->bindParam (1, $args["artist"]);
+    $artist = "%". $args['artist']. "%"; //how to wildcard bind params, thanks stubert
+    $stmt = $this->db->prepare("SELECT * FROM wadsongs WHERE artist LIKE ?");
+    $stmt->bindParam(1, $artist);
     $stmt->execute();
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     //$res->getBody()->write("".$rows.""); //html 
     if(count($rows)==0){
         return $res
@@ -44,7 +45,7 @@ $app->get('/artist/{artist}', function ($req, $res, array $args) {
         ->withHeader('content-Type', 'text/html')
         ->write('Page not found');
     } else {
-    return $res->withJson($rows);
+        return $res->withJson($rows);
     }
 });
 
@@ -72,9 +73,9 @@ $app->post('/review/{id}/create', function ($req, $res, array $args) {
     $postData = $req->getParsedBody();
     if(strlen($postData["review"]) < 5){
         return $res
-            ->withStatus(400) //bad request status
-            ->withHeader('content-Type', 'text/html')
-            ->write('Page not found');
+        ->withStatus(400) //bad request status
+        ->withHeader('content-Type', 'text/html')
+        ->write('Page not found');
     } else {
         $stmt = $this->db->prepare("INSERT INTO reviews (review, songID) VALUES(?, ?)"); // postDATA from client review 
         $stmt->bindParam (1, $postData["review"]);
@@ -82,6 +83,23 @@ $app->post('/review/{id}/create', function ($req, $res, array $args) {
         $stmt->execute();
     }
 });
+
+//Order route
+$app->post('/song/{id}/{qty}/order', function ($req, $res, array $args) {
+    $postData = $req->getParsedBody(); //retrieves value from an associative array?
+    if($postData["qty"] <= 5){    
+        $stmt = $this->db->prepare("INSERT INTO orders (songID, quantity) VALUES(?, ?)"); // postDATA from order track
+        $stmt->bindParam (1, $args["id"]);
+        $stmt->bindParam (2, $args["qty"]);
+        $stmt->execute();
+    } else {
+        return $res
+        ->withStatus(400) //bad request status
+        ->withHeader('content-Type', 'text/html')
+        ->write('Page not found. You can only buy a maximum of 5 copies each order.');
+    }
+});
+
 
 // Run the application
 $app->run();

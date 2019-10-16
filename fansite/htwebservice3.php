@@ -20,13 +20,28 @@ curl_close($connection);
 //echo "Response from server: $response"; // shows any server errors, good practice
 
 //convert JSON string to Array
-$phpArray = json_decode($response, true); // converts JSON data to array
-#print_r($phpArray); //dump all data of the array
+$phpArray = json_decode($response, true); // converts JSON data to associative array
+
+
+
 foreach($phpArray as $key => $value){
     echo "<strong>".$value["title"]."&nbsp;&nbsp;Date:&nbsp".$value["day"]."&nbsp;".$value["month"]."&nbsp".$value["year"]."</strong><br>"; // Access Array data
     echo "<form method='post' action='clientreview.php' id='reviewform".$value["id"]."'>
-    <i class='fa fa-sticky-note fa-4' aria-hidden='true'></i> Review this song<br>
+    Review this song<br>
     <textarea name='review' id='review' rows='3' form='reviewform".$value["id"]."'></textarea>
+    <input type='hidden' name='songID' id='songID' value='".$value["id"]."'><br>
+    <input type='submit'/>
+    </form>";
+    
+    echo "<form method='post' action='ordertrack.php' id='orderform".$value["id"]."'>
+    Order track<br>
+    <select name='qty' id='qty'>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+    </select>
     <input type='hidden' name='songID' id='songID' value='".$value["id"]."'><br>
     <input type='submit'/>
     </form>";
@@ -40,3 +55,4 @@ foreach($phpArray as $key => $value){
 #$myObject = json_decode($myJSON);
 #print_r($myObject);
 #echo $myObject[0]->name;
+?>
