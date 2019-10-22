@@ -54,7 +54,7 @@ function objectstest(){
             };
         },
         decelerate: function(speed_difference){
-            if (this.current_speed >= 5){
+            if (this.current_speed > 0){
                 this.current_speed = this.current_speed - speed_difference; 
                 return "the current speed is " + this.current_speed;
             };
