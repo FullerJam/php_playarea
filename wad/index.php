@@ -85,9 +85,9 @@ $app->post('/review/{id}/create', function ($req, $res, array $args) {
 });
 
 //Order route
-$app->post('/song/{id}/{qty}/order', function ($req, $res, array $args) {
-    $postData = $req->getParsedBody(); //retrieves value from an associative array?
-    if($postData["qty"] <= 5){    
+$app->post('/song/{id}/order/{qty}', function ($req, $res, array $args) {
+     //retrieves value from an associative array?
+    if($args["qty"] <= 5){    
         $stmt = $this->db->prepare("INSERT INTO orders (songID, quantity) VALUES(?, ?)"); // postDATA from order track
         $stmt->bindParam (1, $args["id"]);
         $stmt->bindParam (2, $args["qty"]);

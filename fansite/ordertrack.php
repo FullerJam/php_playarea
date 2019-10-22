@@ -5,7 +5,7 @@ $qty = $_POST["qty"];
 // Initialise the **cURL** connection
 $connection = curl_init();
 // Specify the URL to connect to - this can be PHP, HTML or anything else!
-curl_setopt($connection, CURLOPT_URL, "https://edward2.solent.ac.uk/~wad1923/wad/song/".$id."/".$qty."/order");
+curl_setopt($connection, CURLOPT_URL, "https://edward2.solent.ac.uk/~wad1923/wad/song/".$id."/order/".$qty);
 // This option ensures that the HTTP response is *returned* from curl_exec(),
 // (see below) rather than being output to screen.  
 curl_setopt($connection,CURLOPT_RETURNTRANSFER,1);
