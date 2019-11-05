@@ -4,10 +4,12 @@ lati = 0;
 longi = 0;
 type = "";
 desc = "";
-pos = [0, 0];
+pos = [];
 
 
-
+/**
+ * runs on page load
+ */
 function init() {
 
     if(navigator.geolocation)
@@ -58,7 +60,13 @@ function init() {
     })
 
 };
-
+/**
+ * //Ajax
+ * @param {*} lati // Latitude
+ * @param {*} longi // Longitude
+ * @param {*} type // Location category
+ * @param {*} desc // Description of location
+ */
 function sendAjax(lati, longi, type, desc) {
 
     // read in where results will be shown
@@ -74,7 +82,7 @@ function sendAjax(lati, longi, type, desc) {
     xhr2.addEventListener("load", e => {
 
         //declare error msg div
-        var errorMsg = document.getElementById("response");
+        errorMsg = document.getElementById("response");
 
         if (e.target.status == 404) {
             errorMsg.innerHTML = "<p class='ml-3'>Something went wrong!</p>";
@@ -85,13 +93,9 @@ function sendAjax(lati, longi, type, desc) {
 
         if (e.target.status == 200) {
             var errorMsg = JSON.parse(e.target.responseText);
-
-
             // Put the HTML output into the response div
-            errorMsg.innerHTML = output;
-        } else {
-            errorMsg = e.target.responseText;
-        }
+            errorMsg.innerHTML = "success";
+        } 
 
     });
 
@@ -147,7 +151,7 @@ function sendAjax(lati, longi, type, desc) {
 //     routeToStation.bindPopup("Route to station");
 // }
 
-map.on("click", e=>{
-    var markerPos = [e.latlng.lat, e.latlng.lng];
-    length.marker(markerPos).addTo(map);
-})
+// map.on("click", e=>{
+//     var markerPos = [e.latlng.lat, e.latlng.lng];
+//     length.marker(markerPos).addTo(map);
+// })

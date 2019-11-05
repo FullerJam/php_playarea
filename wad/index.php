@@ -96,7 +96,7 @@ $app->post('/song/{id}/order/{qty}', function ($req, $res, array $args) {
         return $res
         ->withStatus(400) //bad request status
         ->withHeader('content-Type', 'text/html')
-        ->write('Page not found. You can only buy a maximum of 5 copies each order.');
+        ->getBody()->write('Page not found. You can only buy a maximum of 5 copies each order.');
     }
 });
 
