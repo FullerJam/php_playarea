@@ -100,6 +100,30 @@ $app->post('/song/{id}/order/{qty}', function ($req, $res, array $args) {
     }
 });
 
+$app->get('/lala', function ($req, $res, array $args) {
+    return $res->getBody()->write("lala");
+});
+
+//map locations route
+$app->get('/map/{lat}/{lon}', function ($req, $res, array $args){
+    $postData = $req->getParsedBody();
+    if(strlen($postData["type"] || $postData["desc"]) < 1){
+        return $res
+        ->withStatus(400) //bad request status
+        ->withHeader('content-Type', 'text/html')
+        ->write('Type or description empty');
+    } else {
+        $stmt = $this->db->prepare("INSERT INTO annotations (lat, lon, type, description) VALUES(?, ?, ?, ?)"); // postDATA from client review 
+        $stmt->bindParam (1, $args["lat"]);
+        $stmt->bindParam (2, $args["lon"]);
+        $stmt->bindParam (3, $postData["type"]);
+        $stmt->bindParam (4, $postData["desc"]);
+        $stmt->execute();
+        //error checking, returns values it's recieved DEBUG
+        return $res->withJson(["args"=>$args, "post"=>$postData]);
+    }
+    
+ });
 
 // Run the application
 $app->run();
