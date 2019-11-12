@@ -105,7 +105,7 @@ $app->get('/lala', function ($req, $res, array $args) {
 });
 
 //map locations route
-$app->get('/map/{lat}/{lon}', function ($req, $res, array $args){
+$app->post('/map/{lat}/{lon}', function ($req, $res, array $args){
     $postData = $req->getParsedBody();
     if(strlen($postData["type"] || $postData["desc"]) < 1){
         return $res
