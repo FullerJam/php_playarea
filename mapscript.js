@@ -1,4 +1,5 @@
 responseDiv = document.getElementsByClassName("response"); //currently redundant
+
 lati = 0;
 longi = 0;
 type = "";
@@ -34,9 +35,9 @@ function init() {
 
 
     var map = L.map("map1");
-
-    var attrib = "Map data copyright OpenStreetMap contributors, Open Database Licence";
     
+    var attrib = "Map data copyright OpenStreetMap contributors, Open Database Licence";
+
     L.tileLayer
     ("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     { attribution: attrib }).addTo(map);
@@ -48,6 +49,9 @@ function init() {
     // circle radius value is measured in meters
     // var nam = L.circle([51.458057, -2.116074], { radius: 5000, fillColor: 'green', color: 'green', opacity: 0.5 }).addTo(map);
     
+    /**
+     * Map on click events
+     */
     map.on("click", e => {
         lati = e.latlng.lat;
         longi = e.latlng.lng;
@@ -64,6 +68,8 @@ function init() {
     });
 
 };
+
+
 /**
  * //Ajax
  * @param {*} lati // Latitude

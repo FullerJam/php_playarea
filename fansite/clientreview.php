@@ -2,7 +2,8 @@
 $review = $_POST["review"];
 $id = $_POST["songID"];
 $connection = curl_init();
-curl_setopt($connection, CURLOPT_URL, "https://edward2.solent.ac.uk/~wad1923/wad/review/".$id."/create");// <-- not sure if this is how i should be splicing the url
+curl_setopt($connection, CURLOPT_URL, "https://edward2.solent.ac.uk/~wad1923/wad/review/".$id."/create");
+
 $dataToPost = 
     ["review" => "$review"];
 curl_setopt($connection,CURLOPT_RETURNTRANSFER,1);
