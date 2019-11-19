@@ -32,7 +32,7 @@ $app->get('/all_songs', function ($req, $res, array $args) {
 
 // Setup a route (see below) http request, response
 $app->get('/artist/{artist}', function ($req, $res, array $args) {
-    $artist = "%". $args['artist']. "%"; //how to wildcard bind params, thanks stubert
+    $artist = "%". $args['artist']. "%"; //how to wildcard bind params
     $stmt = $this->db->prepare("SELECT * FROM wadsongs WHERE artist LIKE ?");
     $stmt->bindParam(1, $artist);
     $stmt->execute();
