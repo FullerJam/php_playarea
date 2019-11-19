@@ -110,9 +110,6 @@ function sendAjax(lati, longi, type, desc) {
     });
     
     
-    
-    
-    
     // Open the connection to a given remote URL.
     xhr2.open("POST", `https://edward2.solent.ac.uk/~wad1923/wad/map/${lati}/${longi}`);
     

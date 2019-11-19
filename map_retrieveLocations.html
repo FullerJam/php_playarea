@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type='text/javascript' src='https://unpkg.com/leaflet@1.5.1/dist/leaflet.js'></script>
+    <link rel='stylesheet' href='https://unpkg.com/leaflet@1.5.1/dist/leaflet.css' />
+</head>
+
+<body onload="init()">
+    <h1>Leaflet Test</h1>
+    <div id="map1" style="width:800px; height:600px"> </div>
+    <div class="response">
+
+    </div>
+</body>
+<script>
+    const responseDiv = document.querySelector(".response");
+    // let markers = [];
+    var map = L.map("map1");
+
+
+
+
+    function init() {
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+
+                gpspos => {
+                    console.log(`Lat ${gpspos.coords.latitude} Lon ${gpspos.coords.longitude}`);
+                    pos = [gpspos.coords.latitude, gpspos.coords.longitude];
+                    map.setView(pos, 14);
+                },
+
+                err => {
+                    alert(`An error occurred: ${err.code}`);
+                }
+
+            );
+        }
+        else {
+            alert("Sorry, geolocation not supported in this browser");
+        }
+
+
+
+
+        var attrib = "Map data copyright OpenStreetMap contributors, Open Database Licence";
+
+        L.tileLayer
+            ("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                { attribution: attrib }).addTo(map);
+
+
+        function fetchLocationsAjax() {
+            var xhr2 = new XMLHttpRequest();
+
+            xhr2.addEventListener("load", e => {
+                console.log(e.target.status);
+                if (e.target.status == 404) {
+                    responseDiv.innerHTML = "<p class='ml-3'>Something went wrong!</p>";
+                } else if (e.target.status != 404) {
+                    responseDiv.innerHTML = `<p class='ml-3'>The status was ${e.target.status}</p>`;
+                }
+                if (e.target.status == 200) {
+
+                    responseDiv.innerHTML = "success";
+                    markers = JSON.parse(e.target.responseText); //parse to object array
+                    
+                    //for loop to iterate through array and bind the description of each to a popup 
+                    for (var i = 0; i < markers.length; i++) {
+                        L.marker([markers[i].lat, markers[i].lon]).bindPopup('<p>' + [markers[i].description] + '</p>').addTo(map);
+                    };
+                }
+
+            });
+
+            xhr2.open("GET", `https://edward2.solent.ac.uk/~wad1923/wad/maplocations/all`);
+
+            xhr2.send();
+
+        }
+
+        fetchLocationsAjax();
+    };
+
+
+
+</script>
+
+</html>

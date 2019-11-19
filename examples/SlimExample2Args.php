@@ -1,7 +1,7 @@
 <?
-$app->get('ajaxsearch/{location}', function ($req, $res, array $args) {
+$app->get('search/location/hampshire', function ($req, $res, array $args) {
     $stmt = $this->db->prepare("SELECT * FROM accommodation WHERE location=?");
-    $stmt->bindParam (1, $args["location"]);
+    $stmt->bindParam (1, $args["hampshire"]);
     $stmt->execute();
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     //$res->getBody()->write("".$rows.""); //if you want html 
