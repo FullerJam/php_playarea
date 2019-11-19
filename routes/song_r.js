@@ -2,7 +2,7 @@ const express = require('express');
 // song.js
 const song = express.Router();
 
-song.get('/all', (req,res)=&gr; {
+song.get('/all', (req,res)=> {
     // code to return all songs
 });
 
