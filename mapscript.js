@@ -1,11 +1,9 @@
-responseDiv = document.getElementsByClassName("response");
-
+responseDiv = document.getElementsByClassName("response"); //currently redundant
 lati = 0;
 longi = 0;
 type = "";
 desc = "";
 pos = [];
-
 
 /**
  * runs on page load
@@ -38,26 +36,33 @@ function init() {
     var map = L.map("map1");
 
     var attrib = "Map data copyright OpenStreetMap contributors, Open Database Licence";
-
-    L.tileLayer
-        ("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-            { attribution: attrib }).addTo(map);
-                       
-
     
-
+    L.tileLayer
+    ("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    { attribution: attrib }).addTo(map);
+    
+    
+ 
+    
+    
     // circle radius value is measured in meters
     // var nam = L.circle([51.458057, -2.116074], { radius: 5000, fillColor: 'green', color: 'green', opacity: 0.5 }).addTo(map);
-
+    
     map.on("click", e => {
-        type = prompt("Please enter type of this location (pub/park/school/station etc..)");
-        desc = prompt("Please add any description");
         lati = e.latlng.lat;
         longi = e.latlng.lng;
-        alert("you clicked at: Latitude " + lati + ", Longitude" + longi);
+        console.log("user clicked at: Latitude " + lati + ", Longitude" + longi);
+        
+        markerPos = [lati, longi];
+        console.log("Marker position added to variable");
+
+        L.marker(markerPos).addTo(map); // adds marker on click
+
+        type = prompt("Please enter type of this location (pub/park/school/station etc..)");
+        desc = prompt("Please add any description");
         sendAjax(lati, longi, type, desc);
         return;
-    })
+    });
 
 };
 /**
@@ -96,16 +101,16 @@ function sendAjax(lati, longi, type, desc) {
             // Put the HTML output into the response div
             errorMsg.innerHTML = "success";
         } 
-
+        
     });
-
-   
     
-
-
+    
+    
+    
+    
     // Open the connection to a given remote URL.
     xhr2.open("POST", `https://edward2.solent.ac.uk/~wad1923/wad/map/${lati}/${longi}`);
-
+    
     // Send the request.
     xhr2.send(data);
 }
@@ -150,8 +155,3 @@ function sendAjax(lati, longi, type, desc) {
 //     saints.bindPopup("Saints stadium");
 //     routeToStation.bindPopup("Route to station");
 // }
-
-// map.on("click", e=>{
-//     var markerPos = [e.latlng.lat, e.latlng.lng];
-//     length.marker(markerPos).addTo(map);
-// })
