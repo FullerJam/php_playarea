@@ -34,7 +34,7 @@ function init() {
 
 
     var map = L.map("map1");
-
+    
     var attrib = "Map data copyright OpenStreetMap contributors, Open Database Licence";
     
     L.tileLayer
@@ -48,6 +48,9 @@ function init() {
     // circle radius value is measured in meters
     // var nam = L.circle([51.458057, -2.116074], { radius: 5000, fillColor: 'green', color: 'green', opacity: 0.5 }).addTo(map);
     
+    /**
+     * Map on click events
+     */
     map.on("click", e => {
         lati = e.latlng.lat;
         longi = e.latlng.lng;
@@ -55,7 +58,6 @@ function init() {
         
         markerPos = [lati, longi];
         console.log("Marker position added to variable");
-
         L.marker(markerPos).addTo(map); // adds marker on click
 
         type = prompt("Please enter type of this location (pub/park/school/station etc..)");
@@ -65,6 +67,8 @@ function init() {
     });
 
 };
+
+
 /**
  * //Ajax
  * @param {*} lati // Latitude
@@ -103,9 +107,6 @@ function sendAjax(lati, longi, type, desc) {
         } 
         
     });
-    
-    
-    
     
     
     // Open the connection to a given remote URL.

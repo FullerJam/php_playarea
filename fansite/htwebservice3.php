@@ -1,5 +1,5 @@
 <?php
-//header("Content-type: application/json"); // tells client that data is returning in json format, default is html
+header("Content-type: application/json"); // tells client that data is returning in json format, default is html
 
 // Initialise the **cURL** connection
 $connection = curl_init();
