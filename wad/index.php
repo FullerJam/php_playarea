@@ -1,4 +1,5 @@
 <?php
+ header("Access-Control-Allow-Origin: *");
 // Include all the Slim dependencies. Composer creates an 'autoload.php' inside
 // the 'vendor' directory which will, in turn, include all required dependencies.
 require '/var/www/html/share/vendor/autoload.php';
